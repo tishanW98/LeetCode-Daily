@@ -16,9 +16,10 @@ var isValid = function(s) {
   }
   if(arr.length == 0){
     return true 
+  }else {
+    return false
   }
-  return false
 };
 
-const str = "{[}}]}"
+const str = "{[{}]}"
 console.log(isValid(str));
