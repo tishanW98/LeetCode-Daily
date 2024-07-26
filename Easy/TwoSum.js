@@ -7,3 +7,25 @@ var twoSum = function (nums, target) {
     }
   }
 };
+
+
+//----------------------------------------------------//
+//  Another solution using hash table to reduce time  //
+//----------------------------------------------------//
+
+
+var twoSumMap = function(nums, target) {
+  let numMap = {};
+  for (let i = 0; i < nums.length; i++) {
+    let complement = target - nums[i];
+    if (numMap.hasOwnProperty(complement)) {
+      return [numMap[complement], i];
+    }
+    numMap[nums[i]] = i;
+  }
+};
+
+const nums = [2,7,11,15]
+const target = 9
+console.log(twoSum(nums, target));
+console.log(twoSumMap(nums, target));
