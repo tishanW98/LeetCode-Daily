@@ -21,5 +21,32 @@ var isValid = function(s) {
   }
 };
 
+//----------------------------------------------------------------//
+//  Simplified solution for the same problem using map function   //
+//----------------------------------------------------------------//
+
+var isValidMap = function(s) {
+  const map = {
+    '(': ')',
+    '{': '}',
+    '[': ']'
+  };
+  const stack = [];
+
+  for (let i = 0; i < s.length; i++) {
+    if (map[s[i]]) {
+      stack.push(s[i]);
+    } else {
+      const last = stack.pop();
+      if (s[i] !== map[last]) {
+        return false;
+      }
+    }
+  }
+
+  return stack.length === 0;
+};
+
 const str = "{[{}]}"
 console.log(isValid(str));
+console.log(isValidMap(str));
